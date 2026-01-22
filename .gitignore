@@ -1,0 +1,20 @@
+# 応急の .gitignore
+# エディタやOSの一時ファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node / Python など不要なもの（プロジェクトに無くても安全）
+node_modules/
+venv/
+__pycache__/
+
+# ビルド成果物
+dist/
+build/
+
+# 個人設定
+*.local
+
+# 画像の大容量や生成物を除外したければここに追記
+# e.g. /images/generated/

@@ -59,6 +59,49 @@
     }
   });
 
+  // あしあと帳
+  var aKey = 'retro_ashiato_entries';
+  function loadAshiato(){
+    try{
+      var raw = localStorage.getItem(aKey) || '[]';
+      return JSON.parse(raw);
+    }catch(e){return []}
+  }
+  function saveAshiato(arr){
+    localStorage.setItem(aKey, JSON.stringify(arr));
+  }
+  function renderAshiato(){
+    var out = loadAshiato().map(function(e){
+      return '<div class="ashiato-entry">'+
+             '<div class="ashiato-time">'+escapeHtml(e.time)+'</div>'+
+             '<div class="ashiato-visitor">訪問者: '+escapeHtml(e.name)+'</div>'+
+             '<div class="ashiato-comment">'+escapeHtml(e.comment)+'</div>'+
+             '<hr>'+
+             '</div>';
+    }).join('');
+    $('ashiatoEntries').innerHTML = out || '<em>まだ訪問の足跡がありません。</em>';
+  }
+
+  renderAshiato();
+
+  $('ashiatoForm').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var name = $('ashiatoName').value.trim() || '匿名さん';
+    var comment = $('ashiatoComment').value.trim();
+    if(!comment) return;
+    var arr = loadAshiato();
+    arr.unshift({name:name,comment:comment,time:new Date().toLocaleString()});
+    saveAshiato(arr);
+    $('ashiatoName').value=''; $('ashiatoComment').value='';
+    renderAshiato();
+  });
+  $('ashiatoClearBtn').addEventListener('click', function(){
+    if(confirm('あしあと帳を消しますか？')){
+      localStorage.removeItem(aKey);
+      renderAshiato();
+    }
+  });
+
   // 簡易BBS
   var bKey = 'retro_bbs';
   function loadBbs(){

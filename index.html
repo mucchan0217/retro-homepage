@@ -17,10 +17,11 @@
     <!-- ☆ 導きの扉 ☆ -->
     <nav class="sidebar">
       <ul>
-        <li><a href="#profile">†主のプロフィール†</a></li>
-        <li><a href="#links">†魂の絆リンク集†</a></li>
-        <li><a href="#guestbook">†足跡の書†</a></li>
-        <li><a href="#bbs">†闇語り掲示板†</a></li>
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#links">お気に入りリンク集</a></li>
+        <li><a href="#ashiato">あしあと帳</a></li>
+        <li><a href="#guestbook">ゲストブック</a></li>
+        <li><a href="#bbs">簡易BBS</a></li>
       </ul>
       <div class="under-construction">UNDER<br>CONSTRUCTION</div>
     </nav>
@@ -43,7 +44,20 @@
         </ul>
       </section>
 
-      <!-- ★ 訪れし者の足跡 ★ -->
+      <section id="ashiato" class="panel">
+        <h2>あしあと帳</h2>
+        <p>※ここに訪問の足跡を残してください！</p>
+        <form id="ashiatoForm">
+          <input id="ashiatoName" placeholder="訪問者名（ハンドル可）">
+          <br>
+          <textarea id="ashiatoComment" placeholder="一言コメント" required></textarea>
+          <br>
+          <button type="submit">足跡を残す</button>
+          <button type="button" id="ashiatoClearBtn">全消去</button>
+        </form>
+        <div id="ashiatoEntries"></div>
+      </section>
+
       <section id="guestbook" class="panel">
         <h2>†足跡の書† ～魂の交流～</h2>
         <form id="guestForm">

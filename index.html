@@ -17,6 +17,7 @@
       <ul>
         <li><a href="#profile">プロフィール</a></li>
         <li><a href="#links">お気に入りリンク集</a></li>
+        <li><a href="#ashiato">あしあと帳</a></li>
         <li><a href="#guestbook">ゲストブック</a></li>
         <li><a href="#bbs">簡易BBS</a></li>
       </ul>
@@ -36,6 +37,20 @@
           <li><a href="#">アニメ感想 B</a> — 深夜の考察</li>
           <li><a href="#">CGギャラリー C</a> — 作例置き場</li>
         </ul>
+      </section>
+
+      <section id="ashiato" class="panel">
+        <h2>あしあと帳</h2>
+        <p>※ここに訪問の足跡を残してください！</p>
+        <form id="ashiatoForm">
+          <input id="ashiatoName" placeholder="訪問者名（ハンドル可）" required>
+          <br>
+          <textarea id="ashiatoComment" placeholder="一言コメント" required></textarea>
+          <br>
+          <button type="submit">足跡を残す</button>
+          <button type="button" id="ashiatoClearBtn">全消去</button>
+        </form>
+        <div id="ashiatoEntries"></div>
       </section>
 
       <section id="guestbook" class="panel">

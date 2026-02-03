@@ -8,9 +8,20 @@
     var visitors = parseInt(localStorage.getItem(vKey)||'0',10) || 0;
     visitors += 1;
     localStorage.setItem(vKey,String(visitors));
-    $('visitors').textContent = visitors;
+    renderOdometer(visitors);
   }catch(e){
-    $('visitors').textContent = 'N/A';
+    $('visitors').innerHTML = '<span style="color:#ff9">N/A</span>';
+  }
+
+  // 6桁のオドメーター表示
+  function renderOdometer(num){
+    var numStr = String(num).padStart(6, '0');
+    var html = '';
+    for(var i = 0; i < 6; i++){
+      var digit = numStr.charAt(i);
+      html += '<img src="images/digit-'+digit+'.svg" alt="'+digit+'" class="digit-img">';
+    }
+    $('visitors').innerHTML = html;
   }
 
   // ゲストブック
